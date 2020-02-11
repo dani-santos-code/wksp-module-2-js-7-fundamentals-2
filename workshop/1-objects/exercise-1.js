@@ -4,20 +4,22 @@
 // It should contain your first name, last name, age and hometown.
 
 // It should look something like this
-// var myObject = {
-//     name: {
-//         first: 'Scott',
-//         last: 'Morin',
-//     },
-//     age: '49',
-//     city: 'Montreal',
-//     siblings: 1,
-//     petName: 'Mia',
-//     monthOfBirth: 'July'
-// }
+var myObject = {
+  name: {
+    first: "Dani",
+    last: "Santos"
+  },
+  age: "35",
+  city: "Rio",
+  siblings: 1,
+  petName: "Pluma",
+  monthOfBirth: "May"
+};
 
 // A) console.log() your object.
+console.log(myObject);
 // B) console.log() a few of the values in the object.
+console.log(myObject.name.first, myObject["age"]);
 
 //-------------------------------------------------
 
@@ -48,9 +50,12 @@
 // represent a collection of similar things?
 
 var favoriteMovie = {
-
-}
-
+  name: "Dancer in the Dark",
+  director: "Lars Von Trier",
+  yearRealeased: 2000,
+  rating: 8.0,
+  actors: ["Björk", "Catherine Deneuve", "David Morse"]
+};
 
 //-------------------------------------------------
 
@@ -60,14 +65,13 @@ var favoriteMovie = {
 
 const key = "name";
 const person = {
-    name: "Alyssa P. Hacker",
-    age: 26,
-    hometown: "somewhere"
+  name: "Alyssa P. Hacker",
+  age: 26,
+  hometown: "somewhere"
 };
 
-person[age];    // => 26
-person.key;     // => "Alyssa P. Hacker"
-
+person[key]; // => 26
+person.name; // => "Alyssa P. Hacker"
 
 //-------------------------------------------------
 
@@ -80,17 +84,17 @@ person.key;     // => "Alyssa P. Hacker"
 
 // Example
 const alyssa = {
-    name: {
-        first: "Alyssa",
-        middle: "P.",
-        last: "Hacker"
-    },
-    age: 26,
+  name: {
+    first: "Alyssa",
+    middle: "P.",
+    last: "Hacker"
+  },
+  age: 26
 };
 
 function fullName(person) {
-    // Your code here
-
+  // Your code here
+  return `${person.name.first} ${person.name.middle} ${person.name.last}`;
 }
 
 console.log(fullName(alyssa)); // => "Alyssa P. Hacker"
@@ -106,16 +110,19 @@ console.log(fullName(alyssa)); // => "Alyssa P. Hacker"
 // it does.
 
 const rick = {
-    name: {
-        first: "Rick",
-        last: "Sanchez"
-    },
-    age: 66,
+  name: {
+    first: "Rick",
+    last: "Sanchez"
+  },
+  age: 66
 };
 
 function betterFullName(person) {
-    // Your code here
-
+  // Your code here
+  return person.name.middle
+    ? `${person.name.first} ${person.name.middle} ${person.name.last}`
+    : `${person.name.first} ${person.name.last}`;
 }
 
 console.log(betterFullName(rick)); // => "Rick Sanchez"
+console.log(betterFullName(alyssa)); // => "Rick Sanchez"
