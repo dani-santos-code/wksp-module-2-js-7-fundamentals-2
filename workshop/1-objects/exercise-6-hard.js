@@ -29,6 +29,7 @@ var favoriteDessert = {
 //      ...
 const desserts = new Set(Object.values(favoriteDessert));
 const newObj = {};
+const arrayObjects = [];
 
 for (key in favoriteDessert) {
   if (desserts.has(favoriteDessert[key])) {
@@ -39,8 +40,25 @@ for (key in favoriteDessert) {
     }
   }
 }
+for (key in newObj) {
+  arrayObjects.push({ name: key, value: newObj[key] });
+}
+arrayObjects
+  .sort(function(a, b) {
+    return a.value - b.value;
+  })
+  .reverse();
 
-console.log(newObj);
+const ranking = [];
+
+for (let i = 0; i < arrayObjects.length; i++) {
+  ranking.push(
+    `# ${i + 1} ${arrayObjects[i].name.toUpperCase()} had ${
+      arrayObjects[i].value
+    } votes\n`
+  );
+}
+console.log(ranking.join(""));
 
 // B
 // The names of those that said the same desserts. Output the list in
