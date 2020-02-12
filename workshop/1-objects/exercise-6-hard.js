@@ -28,24 +28,20 @@ var favoriteDessert = {
 //      2. <DESSERT_NAME>
 //      ...
 const desserts = new Set(Object.values(favoriteDessert));
+const newObj = {};
 
-const createScore = uniqueDesserts => {
-  let dessertScores = {};
-  for (let key in favoriteDessert) {
-    desserts.forEach(value => {
-      if (value === favoriteDessert[key]) {
-        if (!dessertScores[value]) {
-          dessertScores[value] = 1;
-        } else {
-          dessertScores[value] += 1;
-        }
-      }
-    });
+for (key in favoriteDessert) {
+  if (desserts.has(favoriteDessert[key])) {
+    if (!newObj[favoriteDessert[key]]) {
+      newObj[favoriteDessert[key]] = 1;
+    } else {
+      newObj[favoriteDessert[key]] += 1;
+    }
   }
-  return dessertScores;
-};
+}
 
-console.log(createScore(desserts));
+console.log(newObj);
+
 // B
 // The names of those that said the same desserts. Output the list in
 // order by dessert.
