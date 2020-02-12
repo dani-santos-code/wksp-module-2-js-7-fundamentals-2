@@ -41,5 +41,5 @@ const addToList = (arr, firstPosition, lastPosition) => {
 };
 
 console.log(
-  ddToList(mostPopularFood, "bean burritos", "buffalo-flavored cauliflower")
+  addToList(mostPopularFood, "bean burritos", "buffalo-flavored cauliflower")
 );
