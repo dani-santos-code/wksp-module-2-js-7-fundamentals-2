@@ -2,12 +2,12 @@
 // below is an example of an array of objects, where each object represents a person:
 
 const people = [
-    {name: {first: "Alyssa", middle: "P.", last: "Hacker"}, age: 26},
-    {name: {first: "Ben", last: "Bitdiddle"}, age: 34},
-    {name: {first: "Eva", middle: "Lu", last: "Ator"}, age: 40},
-    {name: {first: "Lem", middle: "E.", last: "Tweakit"}, age: 45},
-    {name: {first: "Louis", last: "Reasoner"}, age: 21},
-    {name: {first: "Shahan", middle: "Haig", last: "Krakirian"}, age: 21}
+  { name: { first: "Alyssa", middle: "P.", last: "Hacker" }, age: 26 },
+  { name: { first: "Ben", last: "Bitdiddle" }, age: 34 },
+  { name: { first: "Eva", middle: "Lu", last: "Ator" }, age: 40 },
+  { name: { first: "Lem", middle: "E.", last: "Tweakit" }, age: 45 },
+  { name: { first: "Louis", last: "Reasoner" }, age: 21 },
+  { name: { first: "Shahan", middle: "Haig", last: "Krakirian" }, age: 21 }
 ];
 
 // Exercise 5.0
@@ -16,6 +16,10 @@ const people = [
 // `name` key does not have the same "shape" as the ones above, make sure you
 // change it to look like these).
 
+people.push({
+  name: { first: "Daniele", middle: "de Araujo", last: "dos Santos" },
+  age: 35
+});
 
 //-------------------------------------------------
 
@@ -24,11 +28,17 @@ const people = [
 // Write a function that returns the average age of the `people` array.
 
 function avgAge(peopleArr) {
-    // Yuor code here
+  // Yuor code here
+  let sum = 0;
+  let arraySize = 0;
+  peopleArr.forEach(obj => {
+    sum += obj.age;
+    arraySize += 1;
+  });
+  return Math.round(sum / arraySize);
 }
 
 console.log(`Average age is ${avgAge(people)}.`);
-
 
 //-------------------------------------------------
 
@@ -39,23 +49,29 @@ console.log(`Average age is ${avgAge(people)}.`);
 // Can you make use of your `fullName` function here?
 
 function fullName(peopleArr) {
-    // Your code here
-
+  // Your code here
+  return peopleArr.forEach(obj => {
+    console.log(
+      obj.name.middle
+        ? `${obj.name.first} ${obj.name.middle} ${obj.name.last}`
+        : `${obj.name.first} ${obj.name.last}`
+    );
+  });
 }
-
-console.log(fullName(people)); 
-
+fullName(people);
 
 //-------------------------------------------------
 
 // Exercise 5.3
 // ------------
 // Write a function that, when given *people* and an *age* as arguments,
-// returns an array of just the people that are older than the specified age.. 
+// returns an array of just the people that are older than the specified age..
 
 function olderPeople(peopleArr, age) {
-    // Your code here
-
+  // Your code here
+  return peopleArr.filter(obj => {
+    return obj.age > 26;
+  });
 }
 
 console.log(olderPeople(people, 26));

@@ -11,3 +11,9 @@ const earlyBirds = ["Ellen", "Jerry", "Jasmine"];
 // Output them in a tidy list from first to last arrival the console.
 
 // NO for loops!
+
+const allAttendees = (arr1, arr2) => {
+  console.log(`${arr1.concat(arr2).join("\n")}`);
+};
+
+allAttendees(earlyBirds, lateComers);
